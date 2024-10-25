@@ -388,7 +388,6 @@
 "Assets/Scripts/Health.cs"
 "Assets/Scripts/HealthTxt.cs"
 "Assets/Scripts/MenuScripts/MainMenu.cs"
-"Assets/Scripts/MenuScripts/PauseMenu.cs"
 "Assets/Scripts/Mouse.cs"
 "Assets/Scripts/Move_card.cs"
 "Assets/Scripts/m_Ray.cs"

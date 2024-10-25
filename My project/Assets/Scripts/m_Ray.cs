@@ -26,16 +26,8 @@ public class m_Ray : MonoBehaviour
         RaycastHit hit;
         if (coll.Raycast(ray,out hit,Mathf.Infinity))
         {
-            if ((gameObject.layer==10 && !GMscript.turn) || (gameObject.layer == 9 && GMscript.turn))
-            {
-                if (transform.childCount==0)
-                {
-                    act = true;
-                    m_Material.color = Red.color;
-                }
-               
-            }
-           
+            act = true;
+            m_Material.color = Red.color;
            
             if (Move_card.dragged==true)
             {

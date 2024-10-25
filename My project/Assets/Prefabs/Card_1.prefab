@@ -206,9 +206,9 @@ GameObject:
   - component: {fileID: 2025222541539593832}
   - component: {fileID: 3590547840115296383}
   - component: {fileID: 7712518706737850977}
+  - component: {fileID: 4499019441554542682}
   - component: {fileID: -6150437537730483506}
   - component: {fileID: -3372612105796898561}
-  - component: {fileID: -509294961521980450}
   m_Layer: 0
   m_Name: Card_1
   m_TagString: Untagged
@@ -299,6 +299,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartHealth: 10
   CurrentHealth: 10
+--- !u!114 &4499019441554542682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6093581774313927251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010cbffb62fc662478b426ed5ad5478c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dist: 25
+  target: {fileID: 0}
+  TrgTxt: {fileID: 0}
+  Dmg: 10
 --- !u!114 &-6150437537730483506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,22 +348,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.2, y: 3.35, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-509294961521980450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6093581774313927251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010cbffb62fc662478b426ed5ad5478c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dist: 25
-  target: {fileID: 0}
-  TrgTxt: {fileID: 0}
-  Dmg: 10
 --- !u!1 &6455598623483893253
 GameObject:
   m_ObjectHideFlags: 0

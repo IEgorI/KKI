@@ -104,7 +104,6 @@
     <Compile Include="Assets\Scripts\Move_card.cs" />
     <Compile Include="Assets\Scripts\m_Ray.cs" />
     <Compile Include="Assets\Scripts\Attack.cs" />
-    <Compile Include="Assets\Scripts\MenuScripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\HealthTxt.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
   </ItemGroup>
