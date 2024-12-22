@@ -12,6 +12,6 @@ public class Shop : MonoBehaviour
     public void addItem(string item)
     {
         moneyText.text = money.ToString();
-        buys.text += "\n" + item;
+        buys.text += "\t" + item;
     }
 }

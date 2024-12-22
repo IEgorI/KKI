@@ -409,6 +409,7 @@
 "Assets/Scripts/MenuScripts/MainMenu.cs"
 "Assets/Scripts/MenuScripts/PauseMenu.cs"
 "Assets/Scripts/MenuScripts/Shop.cs"
+"Assets/Scripts/MenuScripts/ShowText.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
