@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: 77dc3b2f57505f24cad3074c8644a656
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Txt: {instanceID: 0}
+  - eTxt: {instanceID: 0}
+  - cardbase: {instanceID: 0}
+  - Card_1: {fileID: 6093581774313927251, guid: cd3ae7ae43f93de44817a810923b769e, type: 3}
+  - Card_2: {fileID: 5320515748306972263, guid: 4935570293becfd4480ee58d6be5ba79, type: 3}
+  - Card_3: {fileID: 5320515748306972263, guid: a9acfff4fd228f04ea2dae8c13f6c879, type: 3}
+  - Card_4: {fileID: 5320515748306972263, guid: 1c07a72204aefd24aaa3560bd2650d53, type: 3}
+  - Card_5: {fileID: 5320515748306972263, guid: ae6bb4a8ee08a44488d9378d68aa9f33, type: 3}
+  - Card_6: {fileID: 5320515748306972263, guid: d34c9aaf2817c8048ae2dd1ea4dd4c7f, type: 3}
+  - Card_7: {fileID: 5320515748306972263, guid: 56354d6caf4e4af43a64358a8b9223c1, type: 3}
+  - Card_8: {fileID: 5320515748306972263, guid: 9878d0126575e3744a9c7d27eade7ce9, type: 3}
+  - Card_9: {fileID: 6093581774313927251, guid: a428711877936e1429893daacfffdc40, type: 3}
+  - Card_10: {fileID: 6093581774313927251, guid: 1f657e8241db7f943a40ba839f0dd8bd, type: 3}
+  - Card_11: {fileID: 6093581774313927251, guid: ae66ae0218dcf2d45b7a93cedbe823eb, type: 3}
+  - Card_12: {fileID: 6093581774313927251, guid: e7076294a933b4f4599cc42fd3948bb9, type: 3}
+  - Card_13: {fileID: 6093581774313927251, guid: 3ce2c102fe84160448a66f6e1946023a, type: 3}
+  - Card_14: {fileID: 6093581774313927251, guid: 638e2b15affa210479346966291bcc92, type: 3}
+  - Card_15: {fileID: 5320515748306972263, guid: 5ea2f9d6675355e4196d1c3d1fb1fd11, type: 3}
+  - Card_16: {fileID: 5320515748306972263, guid: e2443821c4d50ac4db942a50ae760711, type: 3}
+  - Card_17: {fileID: 5320515748306972263, guid: 8b0d1ecf143175c41a1838aa78c917db, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
