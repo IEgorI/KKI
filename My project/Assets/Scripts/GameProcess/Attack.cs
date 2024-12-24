@@ -26,7 +26,6 @@ public class Attack : MonoBehaviour
             {               
                 ATT();
                 AttTurn = !AttTurn;
-
             }
         }
     }

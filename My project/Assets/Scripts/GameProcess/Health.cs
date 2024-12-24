@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _resultScreenText;
     public int StartHealth;
     public int CurrentHealth;
+    Connection conn = new Connection();
     // Start is called before the first frame update
     void Start()
     {
@@ -33,14 +34,18 @@ public class Health : MonoBehaviour
         if (StartHealth == 100 && nameCard == "Player2")
         {
             this._content.SetActive(true);
-            this._resultScreenText.SetText("You Won!");
+            this._resultScreenText.SetText("¬˚ œŒ¡≈ƒ»À»!");
             this._resultScreenText.color = Color.green;
+            GlobalData.coins += 40;
+            conn.updateConnectionDb(GlobalData.coins);
+            return;
         }
         if (StartHealth == 100 && nameCard == "Player1")
         {
             this._content.SetActive(true);
-            this._resultScreenText.SetText("You died!");
+            this._resultScreenText.SetText("¬˚ œ–Œ»√–¿À»!");
             this._resultScreenText.color = Color.red;
+            return;
         }
     }
 

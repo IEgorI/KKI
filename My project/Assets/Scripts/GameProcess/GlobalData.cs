@@ -7,5 +7,6 @@ public static class GlobalData {
     public static bool prov2 { get; set; }
     public static bool prov3 { get; set; }
     public static bool prov4 { get; set; }
+    public static int coins { get; set; }
     public static string userlogin;
 }

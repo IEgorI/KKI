@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 public class GMscript : MonoBehaviour
 {
     // Start is called before the first frame update
     public static bool turn;
     public static bool turnNew;
+
+    public bool PauseGame;
+    public GameObject pauseGameMenu;
 
     public TextMesh Txt;
     public TextMesh eTxt;
@@ -44,15 +49,34 @@ public class GMscript : MonoBehaviour
         Debug.Log(cardbase.CardName[0]);
     }
 
-
      void Update()
     {
-        if (!turn)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //eMove();
+            if (PauseGame)
+            {
+                Resume();
+            }
+            else
+            {
+                Pause();
+            }
         }
-       
     }
+    public void Resume()
+    {
+        pauseGameMenu.SetActive(false);
+        Time.timeScale = 1f; // время в нормальном режиме
+        PauseGame = false; // игра не на паузе
+    }
+
+    public void Pause()
+    {
+        pauseGameMenu.SetActive(true);
+        Time.timeScale = 0; // время заморожено
+        PauseGame = true; // игра на паузе
+    }
+
     IEnumerator Timer() //таймер главного героя
     {
         tChange();
@@ -104,26 +128,25 @@ public class GMscript : MonoBehaviour
     }
     void tChange()  //происходит смена текста на таймере главного героя
     {
-        --curTime;
-        text=curTime.ToString();
-        Txt.text = text;
-        
+        if (!PauseGame)
+        {
+            --curTime;
+            text = curTime.ToString();
+            Txt.text = text;
+        }
     }
     void etChange() //происходит смена текста на таймере врага
     {
-        --curTime;
-        text = curTime.ToString();
-        eTxt.text = text;
-
+        if (!PauseGame)
+        {
+            --curTime;
+            text = curTime.ToString();
+            eTxt.text = text;
+        }
     }
 
     void deal() //раздача карт для главного героя
     {
-        string[] res = conn.setConnectionDb();
-        int prov1 = int.Parse(res[0]);
-        int prov2 = int.Parse(res[1]);
-        int prov3 = int.Parse(res[2]);
-        int prov4 = int.Parse(res[3]);
         GameObject[] card = new GameObject[] { Card_1, Card_2, Card_3, Card_4, Card_5, Card_6, Card_7, Card_8, Card_9, Card_10, Card_11, Card_12, Card_13, Card_14, Card_15, Card_16, Card_17 };
         for (int i = 0; i < 4; i++)
         {
@@ -133,8 +156,8 @@ public class GMscript : MonoBehaviour
                 int number = 0;
                 while (true)
                 {
-                    number = Random.Range(0, 17);
-                    if ((number == 5 && prov1 == 0) || (number == 8 && prov2 == 0) || (number == 9 && prov3 == 0) || (number == 14 && prov4 == 0))
+                    number = UnityEngine.Random.Range(0, 17);
+                    if ((number == 5 && GlobalData.prov1 == false) || (number == 8 && GlobalData.prov2 == false) || (number == 9 && GlobalData.prov3 == false) || (number == 14 && GlobalData.prov4 == false))
                     {
                         continue;
                     }
@@ -161,7 +184,7 @@ public class GMscript : MonoBehaviour
             if (GameObject.Find("e" + i.ToString() + "0").transform.childCount == 0)
             {
                 int number = 0;
-                number = Random.Range(0, 17);
+                number = UnityEngine.Random.Range(0, 17);
                 GameObject go = Instantiate(card[number]) as GameObject;
                 go.transform.parent = GameObject.Find("e" + i.ToString() + "0").transform;
                 go.transform.localPosition = Vector3.zero;
@@ -175,13 +198,13 @@ public class GMscript : MonoBehaviour
 
     void eMove() //Бот
     {
-        int i = Random.Range(0, 4);
+        int i = UnityEngine.Random.Range(0, 4);
         GameObject go = GameObject.Find("e" + i.ToString() + "0").transform.GetChild(0).gameObject;
         Debug.Log(go);
         GameObject cell;
         do
         {
-            i = Random.Range(0, 12);
+            i = UnityEngine.Random.Range(0, 12);
             cell = GameObject.Find("eCell(" + i.ToString() + ")");
         }
         while (cell.transform.childCount!=0);

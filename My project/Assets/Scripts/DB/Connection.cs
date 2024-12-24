@@ -34,7 +34,7 @@ public class Connection : MonoBehaviour
     }
     public string[] setConnectionDb()
     {
-        string[] result = new string[4];
+        string[] result = new string[5];
         path = Application.dataPath + "/StreamingAssets/mydb.bytes";
         dbconnection = new SqliteConnection("Data Source=" + path);
         dbconnection.Open();
@@ -51,6 +51,7 @@ public class Connection : MonoBehaviour
                 result[1] = r[4].ToString();
                 result[2] = r[5].ToString();
                 result[3] = r[6].ToString();
+                result[4] = r[7].ToString();
             }
             return result;
         }
@@ -58,6 +59,30 @@ public class Connection : MonoBehaviour
         {
             Debug.Log("Error connection!");
             return result;
+        }
+    }
+
+    public void updateConnectionDb(int money)
+    {
+        path = Application.dataPath + "/StreamingAssets/mydb.bytes";
+        dbconnection = new SqliteConnection("Data Source=" + path);
+        dbconnection.Open();
+        if (dbconnection.State == ConnectionState.Open)
+        {
+            SqliteCommand cmd = new SqliteCommand();
+            cmd.Connection = dbconnection;
+            cmd.CommandText = "UPDATE users SET coins = @money, prov1 = @proverka1, prov2 = @proverka2, prov3 = @proverka3, prov4 = @proverka4 WHERE login = @login";
+            cmd.Parameters.AddWithValue("@money", money);
+            cmd.Parameters.AddWithValue("@proverka1", GlobalData.prov1);
+            cmd.Parameters.AddWithValue("@proverka2", GlobalData.prov2);
+            cmd.Parameters.AddWithValue("@proverka3", GlobalData.prov3);
+            cmd.Parameters.AddWithValue("@proverka4", GlobalData.prov4);
+            cmd.Parameters.AddWithValue("@login", GlobalData.userlogin);
+            cmd.ExecuteNonQuery();
+        }
+        else
+        {
+            Debug.Log("Error connection!");
         }
     }
     public void setConnection()
@@ -80,6 +105,11 @@ public class Connection : MonoBehaviour
                 {
                     SceneManager.LoadScene("Menu");
                     GlobalData.userlogin = logText.text;
+                    GlobalData.coins = int.Parse(r[7].ToString());
+                    GlobalData.prov1 = Convert.ToBoolean(int.Parse(r[3].ToString()));
+                    GlobalData.prov2 = Convert.ToBoolean(int.Parse(r[4].ToString()));
+                    GlobalData.prov3 = Convert.ToBoolean(int.Parse(r[5].ToString()));
+                    GlobalData.prov4 = Convert.ToBoolean(int.Parse(r[6].ToString()));
                     break;
                 }
                 else
@@ -92,7 +122,6 @@ public class Connection : MonoBehaviour
             {
                 error.text = "Неверный логин или пароль!";
                 error.color = Color.red;
-                Debug.Log("Неверный логин или пароль!");
                 i = 0;
                 wrong = 0;
             }
@@ -140,7 +169,8 @@ public class Connection : MonoBehaviour
             string pass = passText.text;
             if (!proverka(email, pass))
             {
-                Debug.Log("Error connection! Cod:1");
+                error.text = "Данный пользователь уже зарегестрирован";
+                error.color = Color.red;
                 dbconnection.Close();
             }
             else
@@ -149,7 +179,7 @@ public class Connection : MonoBehaviour
                 bool prov2Sql = false;
                 bool prov3Sql = false;
                 bool prov4Sql = false;
-                int coins = 0;
+                int coins = 1000;
                 cmd.CommandText = $"INSERT INTO users (login, password, prov1, prov2, prov3, prov4, coins) VALUES (@mail, @pass, @prov1, @prov2, @prov3, @prov4, @coins)";
                 cmd.Parameters.Add(new SqliteParameter("@mail", email));
                 cmd.Parameters["@mail"].Value = email;
@@ -166,7 +196,8 @@ public class Connection : MonoBehaviour
                 cmd.Parameters.Add(new SqliteParameter("@coins", coins));
                 cmd.Parameters["@coins"].Value = coins;
                 cmd.ExecuteNonQuery();
-                Debug.Log(cmd.CommandText);
+                error.text = "Регистрация успешна!";
+                error.color = Color.green;
             }
         }
         else
